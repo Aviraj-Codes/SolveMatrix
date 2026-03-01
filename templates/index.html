@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Master | Play & Solve</title>
+    <meta name="description" content="The ultimate Sudoku experience. Play challenging puzzles, auto-solve with AI, track stats.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">Sudoku Master</h1>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+        <main class="game-container">
+            <div class="game-wrapper">
+                <div class="grid-section">
+                    <div class="sudoku-grid" id="sudokuGrid"></div>
+                </div>
+                <div class="control-panel">
+                    <div class="control-group">
+                        <label for="difficultySelect">Difficulty:</label>
+                        <select id="difficultySelect" class="select-input">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard</option>
+                            <option value="expert">Expert</option>
+                        </select>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-primary" id="newGameBtn">New Game</button>
+                        <button class="btn btn-secondary" id="solveBtn">Solve</button>
+                        <button class="btn btn-secondary" id="clearBtn">Clear</button>
+                    </div>
+                    <div class="number-pad">
+                        <div id="numberPad" class="number-buttons"></div>
+                        <button class="btn btn-secondary delete-btn" id="deleteBtn">Delete</button>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <span class="stat-label">Time</span>
+                            <span class="stat-value" id="timer">00:00</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Moves</span>
+                            <span class="stat-value" id="moveCount">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="modal" id="completionModal">
+            <div class="modal-content">
+                <h2>Congratulations!</h2>
+                <p>You solved the puzzle!</p>
+                <div class="modal-stats">
+                    <p>Time: <span id="finalTime">00:00</span></p>
+                    <p>Moves: <span id="finalMoves">0</span></p>
+                </div>
+                <button class="btn btn-primary" onclick="startNewGame()">Play Again</button>
+            </div>
+        </div>
+        <div id="confettiContainer" class="confetti-container"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
