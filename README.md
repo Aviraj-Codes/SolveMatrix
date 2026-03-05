@@ -1,4 +1,4 @@
-## SolveMatrix 
+# SolveMatrix 
 
 A modern Sudoku solving web app built with vanilla HTML5, CSS3, JavaScript & Flask. Features real-time validation, intelligent backtracking solver, puzzle generation, and buttery-smooth animations.
 
