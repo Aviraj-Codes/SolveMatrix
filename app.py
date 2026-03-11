@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Initialize generator and solver
-generator = SudokuGenerator()
+generator = SudokuGenerator(
 solver = SudokuSolver()
 
 @app.route('/')
@@ -91,4 +91,5 @@ def check_completion():
     })
 
 if __name__ == '__main__':
+
     app.run(debug=True, port=5000)
